@@ -26,12 +26,14 @@ namespace ConsoleUI
 
             /* 
              * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
+             * Add a distinct property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
              * Provide the implementations for the abstract methods
              * Only in the Motorcycle class will you override the virtual drive method
             */
 
             // Create a list of Vehicle called vehicles
+
+            List<Vehicle> vehicles = new List<Vehicle>();
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
@@ -39,14 +41,71 @@ namespace ConsoleUI
              * Set the properties with object initializer syntax
              */
 
+            Car myCar = new Car()
+            {
+                HasTrunk = true,
+                IsAManual = true,
+                Year = "1990",
+                Make = "Subaru",
+                Model = "Forester"
+            };
+
+
+            Motorcycle myMotercycle = new Motorcycle()
+            {
+                HasASideCar = true,
+                Type = "Street bike",
+                Year = "2022",
+                Make = "Harley",
+                Model = "Nightster"
+
+            };
+
+            Vehicle myVehicle = new Motorcycle()
+            {
+                HasASideCar = false,
+                Type = "Crotch Rocket",
+                Year = "2019",
+                Make = "Kawasaki",
+                Model = "Klx 230R"
+
+            };
+
+            Vehicle Vehicle2 = new Car()
+            {
+                HasTrunk = false,
+                IsAManual = false,
+                Year = "2016",
+                Make = "Jeep",
+                Model = "Cherokee"
+
+            };
+
+            vehicles.Add(myCar);
+            vehicles.Add(myMotercycle);
+            vehicles.Add(myVehicle);
+            vehicles.Add(Vehicle2);
+
+
+
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
 
+
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine(vehicle.Year);
+                Console.WriteLine(vehicle.Model);
+                Console.WriteLine(vehicle.Make);
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
             Console.ReadLine();
         }
     }
